@@ -34,15 +34,58 @@ int main()
     long lg = 99;
     cout << lg << endl
          << sizeof(lg) << endl;
-    
-    // boolean -> 1 byte
-    bool flag = true;
-    cout << flag << endl << sizeof(flag) << endl;
 
-    
+    // boolean -> 1 byte
+    bool t = true;
+    bool f = false;
+    cout << t << endl
+         << f << endl
+         << sizeof(t) << endl
+         << sizeof(f) << endl;
+
     // Garbage value
     int n;
     cout << n << endl;
+
+    // Operators
+
+    int a = 5;
+    int b = 10;
+
+    cout << a + b << endl;
+    cout << a - b << endl;
+    cout << a * b << endl;
+    cout << b / a << endl;
+    cout << b % a << endl;
+
+    cout << (a > b) << endl;
+    cout << (a < b) << endl;
+    cout << (a >= b) << endl;
+    cout << (a <= b) << endl;
+    cout << (a != b) << endl;
+    cout << (a == b) << endl;
+
+    int age = 101;
+    int car = 12;
+
+    if (age >= 18 && car >= 1)
+    {
+        cout << "License miljaega" << endl;
+    }
+
+    cout << !age << endl;
+
+    char k;
+    cin >> ch;
+    cout << "here: " << ch << endl;
+
+    int marks;
+
+    cout << "Enter the marks here: " << endl;
+    // take input from user
+    cin >> marks;
+
+    cout << "Printing marks: " << marks << endl;
 
     return 0;
 }
