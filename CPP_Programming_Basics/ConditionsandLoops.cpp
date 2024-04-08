@@ -69,5 +69,45 @@ int main()
         }
     }
 
+    // differntiating output
+    cout << endl
+         << "-----------" << endl;
+
+    int i = 1;
+    for (;;)
+    {
+        cout << "value of i is :" << i << endl;
+        if (i < 5)
+        {
+            cout << "babbar" << endl;
+            i = i + 1;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    // differntiating output
+    cout << endl
+         << "-----------" << endl;
+
+    for (int i = 1; i <= 10; i++)
+    {
+        cout << 19 * i << endl;
+    }
+
+    // differntiating output
+    cout << endl
+         << "-----------" << endl;
+
+    for (int i = 1; i <= 100; i++)
+    {
+        if (i % 2 == 0)
+        {
+            cout << i << endl;
+        }
+    }
+
     return 0;
 }
