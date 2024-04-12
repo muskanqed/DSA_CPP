@@ -2,11 +2,12 @@
 HelloWorld.exe
 DecimaltoBinary.exe
 ConditionsandLoops.exe
-Square.exe
 Rectangle.exe
 HollowRectangle.exe
 HalfPyramid.exe
 InvertedHalfPyramid.exe
 NumericHalfPyramid.exe
 InvertedNumericHalfPyramid.exe
+SolidSquare.exe
 DebugExercise.exe
+HollowSquare.exe
