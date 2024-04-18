@@ -5,13 +5,26 @@ int main()
 {
     int n;
     cin >> n;
+
     for (int row = 0; row < n; row++)
     {
-        for (int col = 0; col < (2 * n) - 1; col++)
+    int k = 0;
+
+        for (int col = 0; col < ((2 * n) - 1); col++)
         {
-            cout << "* ";
+            if (col < n - row - 1)
+            {
+                cout << " ";
+            }
+            else if(k < 2 * row + 1)
+            {
+                cout << "*";
+                k++;
+            }
+            else{
+                cout << " ";
+            }
         }
         cout << endl;
     }
-    return 0;
 }
