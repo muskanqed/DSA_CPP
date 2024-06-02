@@ -15,10 +15,12 @@ int main()
             }
             else
             {
-                if(col==0 || col==n-1){
+                if (col == 0 || col == n - 1)
+                {
                     cout << "* ";
                 }
-                else{
+                else
+                {
                     cout << "  ";
                 }
             }
