@@ -269,7 +269,7 @@ void Diamond()
     }
 }
 
-void HollowPyramid()
+void HollowSolidFullPyramid()
 {
     int n;
     cin >> n;
@@ -281,7 +281,7 @@ void HollowPyramid()
         }
         for (int col = 0; col < row + 1; col++)
         {
-            if (col == 0 || col == row || row == n-1)
+            if (col == 0 || col == row || row == n - 1)
             {
                 cout << "* ";
             }
@@ -289,6 +289,29 @@ void HollowPyramid()
             {
                 cout << "  ";
             }
+        }
+        cout << endl;
+    }
+}
+
+void InvertedHollowSolidFullPyramid()
+{
+    int n;
+    cin >> n;
+    for (int row = 0; row < n; row++)
+    {
+        // spaces
+        for (int col = 0; col < row; col++)
+        {
+            cout << " ";
+        }
+        // stars
+        for (int col = 0; col < n - row; col++)
+        {
+            if (col == 0 || col == n - row - 1 || row == 0)
+                cout << "* ";
+            else
+                cout << "  ";
         }
         cout << endl;
     }
@@ -309,6 +332,7 @@ int main()
     // HollowSolidFullPyramidV2();
     // InvertedSolidFullPyramid();
     // Diamond();
-    HollowPyramid();
+    // HollowSolidFullPyramid();
+    InvertedHollowSolidFullPyramid();
     return 0;
 }
