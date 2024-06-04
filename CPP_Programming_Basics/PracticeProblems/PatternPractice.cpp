@@ -184,7 +184,7 @@ void SolidFullPyramidV2()
     }
 }
 
-void HollowSolidFullPyramidV2()
+void HollowFullPyramidV2()
 {
     int n;
     cin >> n;
@@ -269,7 +269,7 @@ void Diamond()
     }
 }
 
-void HollowSolidFullPyramid()
+void HollowFullPyramid()
 {
     int n;
     cin >> n;
@@ -294,7 +294,7 @@ void HollowSolidFullPyramid()
     }
 }
 
-void InvertedHollowSolidFullPyramid()
+void HollowInvertedFullPyramid()
 {
     int n;
     cin >> n;
@@ -329,10 +329,10 @@ int main()
     // HollowInvertedHalfPyramid();
     // SolidFullPyramid();
     // SolidFullPyramidV2();
-    // HollowSolidFullPyramidV2();
+    // HollowFullPyramidV2();
     // InvertedSolidFullPyramid();
     // Diamond();
-    // HollowSolidFullPyramid();
-    InvertedHollowSolidFullPyramid();
+    // HollowFullPyramid();
+   HollowInvertedFullPyramid();
     return 0;
 }
