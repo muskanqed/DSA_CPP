@@ -317,6 +317,102 @@ void HollowInvertedFullPyramid()
     }
 }
 
+void HollowDimaond()
+{
+    int n;
+    cin >> n;
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < n - (row + 1); col++)
+        {
+            cout << " ";
+        }
+        for (int col = 0; col < row + 1; col++)
+        {
+            if (col == 0 || col == row)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << "  ";
+            }
+        }
+        cout << endl;
+    }
+    for (int row = 0; row < n; row++)
+    {
+        // spaces
+        for (int col = 0; col < row; col++)
+        {
+            cout << " ";
+        }
+        // stars
+        for (int col = 0; col < n - row; col++)
+        {
+            if (col == 0 || col == n - row - 1)
+                cout << "* ";
+            else
+                cout << "  ";
+        }
+        cout << endl;
+    }
+}
+
+void FlippedSolidDiamond()
+{
+    int n;
+    cin >> n;
+
+    for (int row = 0; row < n; row++)
+    {
+        // Inverted Pyramid 1
+        for (int col = 0; col < n - row; col++)
+        {
+            cout << "* ";
+        }
+
+        // Full Pyramid
+
+        for (int col = 0; col < (2 * row) + 1; col++)
+        {
+            cout << "  ";
+        }
+
+        // Inverted Pyramid 2
+        for (int col = 0; col < n - row; col++)
+        {
+            cout << "* ";
+        }
+
+        cout << endl;
+    }
+
+    for (int row = 0; row < n; row++)
+    {
+        // Inverted Pyramid 1
+        for (int col = 0; col < row + 1; col++)
+        {
+            cout << "* ";
+        }
+
+        // Full Pyramid
+
+        for (int col = 0; col < (2 * n - 2 * row - 1); col++)
+        {
+            cout << "  ";
+        }
+
+        // Inverted Pyramid 2
+        for (int col = 0; col < row + 1; col++)
+        {
+            cout << "* ";
+        }
+
+        cout << endl;
+    }
+}
+
 int main()
 {
     // Square();
@@ -333,6 +429,9 @@ int main()
     // InvertedSolidFullPyramid();
     // Diamond();
     // HollowFullPyramid();
-   HollowInvertedFullPyramid();
+    // HollowInvertedFullPyramid();
+    // HollowDimaond();
+    FlippedSolidDiamond();
+
     return 0;
 }
