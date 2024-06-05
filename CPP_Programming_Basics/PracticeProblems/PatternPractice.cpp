@@ -413,6 +413,27 @@ void FlippedSolidDiamond()
     }
 }
 
+void FancyPatternOne()
+{
+    int n;
+    cin >> n;
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < 2 * row + 1; col++)
+        {
+            if (col % 2 != 0)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << row + 1;
+            }
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
     // Square();
@@ -431,7 +452,8 @@ int main()
     // HollowFullPyramid();
     // HollowInvertedFullPyramid();
     // HollowDimaond();
-    FlippedSolidDiamond();
+    // FlippedSolidDiamond();
+    FancyPatternOne();
 
     return 0;
 }
