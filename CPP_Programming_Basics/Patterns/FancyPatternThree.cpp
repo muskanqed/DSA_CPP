@@ -3,26 +3,28 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    for (int row = 0; row < n; row++)
+    int size;
+    cout << "Enter Size of pattern" << endl;
+    cin >> size;
+    for (int row = 0; row < size; row++)
     {
-        for (int col = 0; col < n - row; col++)
+        for (int col = 0; col < size; col++)
         {
-            if (row == 0 || row == n - 1)
+            if (col == 0)
             {
-                cout << "* ";
+                cout << 1;
+            }
+            else if (row == size - 1)
+            {
+                cout << col + 1;
+            }
+            else if (col == row + 1 && row != 0)
+            {
+                cout << row + 1;
             }
             else
             {
-                if (col == 0 || col == n - row - 1)
-                {
-                    cout << "* ";
-                }
-                else
-                {
-                    cout << "  ";
-                }
+                cout << " ";
             }
         }
         cout << endl;

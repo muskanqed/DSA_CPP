@@ -472,27 +472,52 @@ void FancyPatternTwo()
 
 void FancyPatternThree()
 {
+    int size;
+    cout << "Enter Size of pattern" << endl;
+    cin >> size;
+
+    for (int row = 0; row < size; row++)
+    {
+        for (int col = 0; col < size; col++)
+        {
+            if (col == 0)
+            {
+                cout << 1;
+            }
+            else if (row == size - 1)
+            {
+                cout << col + 1;
+            }
+            else if (col == row + 1 && row != 0)
+            {
+                cout << row + 1;
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void AlphabeticalHalfPyramid()
+{
     int n;
     cin >> n;
     for (int row = 0; row < n; row++)
     {
-        for (int col = 0; col < n - row; col++)
+        char ch;
+        for (int col = 0; col < row + 1; col++)
         {
-            if (row == 0 || row == n - 1)
-            {
-                cout << "* ";
-            }
-            else
-            {
-                if (col == 0 || col == n - row - 1)
-                {
-                    cout << "* ";
-                }
-                else
-                {
-                    cout << "  ";
-                }
-            }
+            ch = col + 1 + 'A' - 1;
+            cout << ch;
+        }
+
+        for (char alphabet = ch; alphabet > 'A';)
+        {
+            alphabet = alphabet - 1;
+            cout << alphabet;
         }
         cout << endl;
     }
@@ -518,8 +543,9 @@ int main()
     // HollowDimaond();
     // FlippedSolidDiamond();
     // FancyPatternOne();
-    // FancyPatternTwo();
-    FancyPatternThree();
+    // *FancyPatternTwo();
+    // *FancyPatternThree();
+    AlphabeticalHalfPyramid();
 
     return 0;
 }
