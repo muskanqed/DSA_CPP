@@ -554,7 +554,7 @@ void HollowInvertedNumericHalfPyramid()
 
 void NumericPalindromeEquilateralPyramid()
 {
-       int n;
+    int n;
     cin >> n;
     for (int row = 1; row <= n; row++)
     {
@@ -564,15 +564,36 @@ void NumericPalindromeEquilateralPyramid()
         }
         for (int col = 1; col <= row; col++)
         {
-            cout << col  << " ";
+            cout << col << " ";
         }
-        for (int col = row - 1; col >= 1; col--) {
+        for (int col = row - 1; col >= 1; col--)
+        {
             cout << col << " ";
         }
         cout << endl;
     }
 }
 
+void HollowNumericHalfPyramid()
+{
+    int n;
+    cin >> n;
+    for (int row = 1; row <= n; row++)
+    {
+        for (int col = 1; col < row + 1; col++)
+        {
+            if (col == 1 || col == row || row == n)
+            {
+                cout << col << " ";
+            }
+            else
+            {
+                cout << "  ";
+            }
+        }
+        cout << endl;
+    }
+}
 
 int main()
 {
@@ -598,7 +619,8 @@ int main()
     // *FancyPatternThree();
     // AlphabeticalHalfPyramid();
     // HollowInvertedNumericHalfPyramid();
-    NumericPalindromeEquilateralPyramid();
+    // NumericPalindromeEquilateralPyramid();
+    HollowNumericHalfPyramid();
 
     return 0;
 }
