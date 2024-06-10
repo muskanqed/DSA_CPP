@@ -654,13 +654,13 @@ void FancyPatternFive()
     cin >> n;
 
     // Print the top half of the pattern
-    for (int i = 1; i <= n; i++)
+    for (int row = 1; row <= n; row++)
     {
-        for (int j = 1; j <= i; j++)
+        for (int col = 1; col <= row; col++)
         {
             cout << number;
             number++;
-            if (j < i)
+            if (col < row)
             {
                 cout << " * ";
             }
@@ -669,20 +669,57 @@ void FancyPatternFive()
     }
 
     // Print the bottom half of the pattern
-    number -= n; // Reset number to the starting value of the last row
-    for (int i = n; i >= 1; i--)
+    number = number - n; // Reset number to the starting value of the last row
+    for (int row = n; row >= 1; row--)
     {
-        for (int j = 1; j <= i; j++)
+        for (int col = 1; col <= row; col++)
         {
             cout << number;
             number++;
-            if (j < i)
+            if (col < row)
             {
                 cout << " * ";
             }
         }
         cout << endl;
-        number -= (2 * i - 1); // Adjust number to the starting value of the next row
+        number = number - (2 * row - 1); // Adjust number to the starting value of the next row
+    }
+}
+
+void FancyPatternSix()
+{
+    int n;
+    cin >> n;
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < (2 * row) + 1; col++)
+        {
+            if (col == 0)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << col + 1 << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void FloydsTriangle()
+{
+    int n;
+    cin >> n;
+    int number = 1;
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < row + 1; col++)
+        {
+            cout << number << " ";
+            number++;
+        }
+        cout << endl;
     }
 }
 
@@ -714,7 +751,9 @@ int main()
     // HollowNumericHalfPyramid();
     // SolidHalfDiamond();
     // FancyPatternFour();
-    FancyPatternFive();
+    // FancyPatternFive();
+    // FancyPatternSix();
+    FloydsTriangle();
 
     return 0;
 }

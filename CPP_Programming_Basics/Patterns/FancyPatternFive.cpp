@@ -8,13 +8,13 @@ int main()
     cin >> n;
 
     // Print the top half of the pattern
-    for (int i = 1; i <= n; i++)
+    for (int row = 1; row <= n; row++)
     {
-        for (int j = 1; j <= i; j++)
+        for (int col = 1; col <= row; col++)
         {
             cout << number;
             number++;
-            if (j < i)
+            if (col < row)
             {
                 cout << " * ";
             }
@@ -24,19 +24,19 @@ int main()
 
     // Print the bottom half of the pattern
     number -= n; // Reset number to the starting value of the last row
-    for (int i = n; i >= 1; i--)
+    for (int row = n; row >= 1; row--)
     {
-        for (int j = 1; j <= i; j++)
+        for (int col = 1; col <= row; col++)
         {
             cout << number;
             number++;
-            if (j < i)
+            if (col < row)
             {
                 cout << " * ";
             }
         }
         cout << endl;
-        number -= (2 * i - 1); // Adjust number to the starting value of the next row
+        number -= (2 * row - 1); // Adjust number to the starting value of the next row
     }
     return 0;
 }
