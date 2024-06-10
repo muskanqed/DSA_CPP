@@ -472,19 +472,19 @@ void FancyPatternTwo()
 
 void FancyPatternThree()
 {
-    int size;
-    cout << "Enter Size of pattern" << endl;
-    cin >> size;
+    int n;
+    cout << "Enter n of pattern" << endl;
+    cin >> n;
 
-    for (int row = 0; row < size; row++)
+    for (int row = 0; row < n; row++)
     {
-        for (int col = 0; col < size; col++)
+        for (int col = 0; col < n; col++)
         {
             if (col == 0)
             {
                 cout << 1;
             }
-            else if (row == size - 1)
+            else if (row == n - 1)
             {
                 cout << col + 1;
             }
@@ -690,9 +690,11 @@ void FancyPatternSix()
 {
     int n;
     cin >> n;
+
     for (int row = 0; row < n; row++)
     {
-        for (int col = 0; col < (2 * row) + 1; col++)
+        int k = 1;
+        for (int col = 0; col < row + 1; col++)
         {
             if (col == 0)
             {
@@ -700,7 +702,58 @@ void FancyPatternSix()
             }
             else
             {
-                cout << col + 1 << " ";
+                cout << k << " ";
+                k++;
+            }
+        }
+
+        for (int col = k - 2; col >= 0; col--)
+        {
+            if (col == 1)
+            {
+                cout << col << " ";
+            }
+            else if (col == 0)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << col << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    for (int row = 0; row < n - 1; row++)
+    {
+        int k = 1;
+        for (int col = 0; col < n - row - 1; col++)
+        {
+            if (col == 0)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << k << " ";
+                k++;
+            }
+        }
+
+        for (int col = k - 2; col >= 0; col--)
+        {
+            if (col == 1)
+            {
+                cout << col << " ";
+            }
+            else if (col == 0)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << col << " ";
             }
         }
         cout << endl;
@@ -718,6 +771,22 @@ void FloydsTriangle()
         {
             cout << number << " ";
             number++;
+        }
+        cout << endl;
+    }
+}
+
+void PascalsTriangle()
+{
+    int n;
+    cin >> n;
+    for (int row = 1; row <= n; row++)
+    {
+        int C = 1;
+        for (int col = 1; col <= row; col++)
+        {
+            cout << C << " ";
+            C = C * (row - col) / col;
         }
         cout << endl;
     }
@@ -752,8 +821,9 @@ int main()
     // SolidHalfDiamond();
     // FancyPatternFour();
     // FancyPatternFive();
-    // FancyPatternSix();
-    FloydsTriangle();
+    // *FancyPatternSix();
+    // FloydsTriangle();
+    PascalsTriangle();
 
     return 0;
 }
