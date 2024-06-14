@@ -31,7 +31,7 @@ Manual TypeCasting
 Allows you to explicitly specify the desired data type during an assignment or
 operation
 
-Usage 
+Usage
 you can use the casting operator which is represented by parantheses containing
 the target datatype
 
@@ -54,7 +54,7 @@ void ImplicitTypeCastingExample()
 
     int result2 = num1 + num2;
     cout << result2 << endl;
-    // info loss and num1 is stil converted to floated and while storing it in
+    // info loss and num1 is stil converted to float and while storing it in
     // result2 variable typecasting is made to int to store it in a int variable
 
     // char -> int and int -> char
@@ -62,15 +62,18 @@ void ImplicitTypeCastingExample()
 
     char ch = 'A';
     int a = ch + 1;
+    char b = ch + 1;
+    int c = 90;
     cout << a << endl;
-    char b = a;
     cout << b << endl;
+    char d = c;
+    cout << d << endl;
 }
 
 void ExplicitTypeCastingExample()
 {
     int num1 = 10;
-    float num2 = 55.5;
+    float num2 = 5.5;
 
     int result = num1 + (int)num2;
     float result2 = num1 + (int)num2; // explicit conversion stored in implicit variable
@@ -90,13 +93,13 @@ void ExplicitTypeCastingExample()
 
     int a = 10;
     int b = 3.3;
-    float c = a / b;
+    float c = a / (float)b;
     cout << c << endl;
 }
 
 int main()
 {
-    ImplicitTypeCastingExample();
+    // ImplicitTypeCastingExample();
     ExplicitTypeCastingExample();
     return 0;
 }
