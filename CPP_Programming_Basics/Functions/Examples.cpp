@@ -32,6 +32,7 @@ void countNumbers(int n)
     }
 }
 
+// Check the Number is Even or Odd
 void checkEvenorOdd(int num)
 {
     if (num % 2 == 0)
@@ -44,6 +45,7 @@ void checkEvenorOdd(int num)
     }
 }
 
+// Find sum of 1 to N numbers
 void findSumofN(int n)
 {
     int sum = 0;
@@ -54,6 +56,7 @@ void findSumofN(int n)
     cout << "Final Sum is: " << sum << endl;
 }
 
+// Find sum of even number upto N
 void SumofEvenUptoN(int n)
 {
     int sum = 0;
@@ -66,6 +69,38 @@ void SumofEvenUptoN(int n)
         sum = sum + i;
     }
     cout << "Sum of all Even numbers: " << sum << endl;
+}
+
+// check prime or not
+bool CheckPrime(int num, bool printFlag)
+{
+    // divisible by one or self only.
+    // not perfectly divisible by other numbers
+
+    // method to solve
+    // we will not check divisibility with self and 1
+    // we will check with all the other numbers that in the range of
+    // 2 to N-1,
+    // where N is the number you are checking prime for,
+    // 2 is to skip 1 and N-1 is to skip the number you are checking
+
+    for (int i = 2; i < num; i++)
+    {
+        if (num % i == 0)
+        {
+            if (printFlag)
+            {
+                cout << num << " is not a prime number" << endl;
+            }
+            return false;
+        }
+    }
+
+    if (printFlag)
+    {
+        cout << num << " is a prime number" << endl;
+    }
+    return true;
 }
 
 int main()
