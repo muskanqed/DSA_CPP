@@ -44,6 +44,30 @@ void checkEvenorOdd(int num)
     }
 }
 
+void findSumofN(int n)
+{
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        sum = sum + i;
+    }
+    cout << "Final Sum is: " << sum << endl;
+}
+
+void SumofEvenUptoN(int n)
+{
+    int sum = 0;
+    for (int i = 2; i <= n; i = i + 2)
+    {
+        // if (i % 2 == 0)
+        // {
+        //     sum = sum + i;
+        // }
+        sum = sum + i;
+    }
+    cout << "Sum of all Even numbers: " << sum << endl;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -52,7 +76,9 @@ int main()
     //     maxofNumbers(a, b, c);
 
     // countNumbers(10);
-    checkEvenorOdd(10);
+    // checkEvenorOdd(10);
+    // findSumofN(7);
+    SumofEvenUptoN(7);
 
     return 0;
 }
