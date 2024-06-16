@@ -38,10 +38,9 @@ int sumByreturn(int a, int b, int c)
 int main()
 {
 
-    // cout << "enter 3 numbers " << endl;
     sumOfNumbers(3, 5, 7);
 
     int sum = sumByreturn(2, 6, 9);
-    cout << "Sum " << sum << endl;
+    cout << "Sum is: " << sum << endl;
     return 1;
 }
