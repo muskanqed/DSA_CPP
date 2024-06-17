@@ -43,6 +43,16 @@ void checkEvenorOdd(int num)
     {
         cout << "The number is Odd" << endl;
     }
+
+    // using bitwise
+    if ((num & 1) == 0)
+    {
+        cout << num << " Is Even Number using Bitwise" << endl;
+    }
+    else
+    {
+        cout << num << " Is Odd Number using Bitwise" << endl;
+    }
 }
 
 // Find sum of 1 to N numbers
@@ -112,6 +122,17 @@ float areaCircle(int radius)
     return 0;
 }
 
+// Find factorial of number
+void factorialofNumber(int n)
+{
+    int factorial = 1;
+    for (int i = n; i >= 1; i--)
+    {
+        factorial = factorial * i;
+    }
+    cout << "The factorial is: " << factorial << endl;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -124,7 +145,8 @@ int main()
     // findSumofN(7);
     // SumofEvenUptoN(7);
     // CheckPrime(3, 1);
-    areaCircle(5);
+    // areaCircle(5);
+    factorialofNumber(8);
 
     return 0;
 }
