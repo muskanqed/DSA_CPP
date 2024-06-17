@@ -103,6 +103,15 @@ bool CheckPrime(int num, bool printFlag)
     return true;
 }
 
+// Find area of Circle
+float areaCircle(int radius)
+{
+    float pi = 3.14;
+    float area = pi * radius * radius;
+    cout << area << " is the area of circle" << endl;
+    return 0;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -113,7 +122,9 @@ int main()
     // countNumbers(10);
     // checkEvenorOdd(10);
     // findSumofN(7);
-    SumofEvenUptoN(7);
+    // SumofEvenUptoN(7);
+    // CheckPrime(3, 1);
+    areaCircle(5);
 
     return 0;
 }
