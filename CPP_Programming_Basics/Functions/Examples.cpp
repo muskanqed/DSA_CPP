@@ -82,7 +82,7 @@ void SumofEvenUptoN(int n)
 }
 
 // check prime or not
-bool CheckPrime(int num, bool printFlag)
+bool checkPrime(int num, bool printFlag)
 {
     // divisible by one or self only.
     // not perfectly divisible by other numbers
@@ -133,6 +133,21 @@ void factorialofNumber(int n)
     cout << "The factorial is: " << factorial << endl;
 }
 
+// Print all the prime numbers from 1 to N
+int primeNumbersUptoN(int n)
+{
+    cout << "Prime Number from 1 to " << n << " are ";
+    for (int i = 1; i <= n; i++)
+    {
+        bool isPrime = checkPrime(i, false);
+        if (isPrime)
+        {
+            cout << i << " ";
+        }
+    }
+    return 0;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -144,9 +159,11 @@ int main()
     // checkEvenorOdd(10);
     // findSumofN(7);
     // SumofEvenUptoN(7);
-    // CheckPrime(3, 1);
+    // checkPrime(3, 1);
     // areaCircle(5);
-    factorialofNumber(8);
+    // factorialofNumber(8);
+    // primeNumbersUptoN(8);
+    primeNumbersUptoN(10);
 
     return 0;
 }
