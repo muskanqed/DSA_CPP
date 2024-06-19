@@ -174,6 +174,26 @@ void convertTemperature(double celcius)
          << answer.back() << endl;
 }
 
+// Create Number using digits
+void createNumberUsingDigits()
+{
+    int numberOfDigits = 0;
+    int digit;
+    int num = 0;
+    cout << "Enter the number of digits you want to enter" << endl;
+    cin >> numberOfDigits;
+    for (int i = 0; i < numberOfDigits; ++i)
+    {
+        cout << "Enter digit: " << endl;
+        cin >> digit;
+        num = num * 10 + digit;
+        cout << "The Number formed so far " << num << endl;
+    }
+
+    cout << endl
+         << "The Final Number formed is " << num << endl;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -191,7 +211,8 @@ int main()
     // primeNumbersUptoN(8);
     // primeNumbersUptoN(10);
     // setKthBit(15, 3);
-    convertTemperature(36.50);
+    // convertTemperature(36.50);
+    createNumberUsingDigits();
 
     return 0;
 }
