@@ -194,6 +194,30 @@ void createNumberUsingDigits()
          << "The Final Number formed is " << num << endl;
 }
 
+// Print all digits of an Integer
+void printDigitsUsingInteger()
+{
+    int Integer;
+    cout << "Enter the Integer: " << endl;
+    cin >> Integer;
+    while (Integer > 0)
+    {
+        int Digit = Integer % 10;
+        cout << "Digits are: " << Digit << endl;
+        Integer = Integer / 10;
+    }
+}
+
+// Conert KM to Miles
+void KMToMiles()
+{
+    double KM;
+    cout << "Enter KM: " << endl;
+    cin >> KM;
+    double Miles = KM * 0.621371;
+    cout << "The miles is: " << Miles << endl;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -212,7 +236,9 @@ int main()
     // primeNumbersUptoN(10);
     // setKthBit(15, 3);
     // convertTemperature(36.50);
-    createNumberUsingDigits();
+    // createNumberUsingDigits();
+    // printDigitsUsingInteger();
+    KMToMiles();
 
     return 0;
 }
