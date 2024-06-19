@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 // Find maximum of 3 numbers
@@ -148,6 +149,31 @@ int primeNumbersUptoN(int n)
     return 0;
 }
 
+// Set the kth bit
+void setKthBit(int n, int k)
+{
+    int mask = 1 << k;
+    n = n | mask;
+
+    cout << n << " is the result" << endl;
+
+    // return n | (1 << k)(formula)
+}
+
+// Convert the temperature
+void convertTemperature(double celcius)
+{
+    double kelvin = celcius + 273.15;
+    double fahrenheit = celcius * 1.80 + 32.00;
+
+    vector<double> answer;
+    answer.push_back(kelvin);
+    answer.push_back(fahrenheit);
+
+    cout << answer.front() << endl
+         << answer.back() << endl;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -163,7 +189,9 @@ int main()
     // areaCircle(5);
     // factorialofNumber(8);
     // primeNumbersUptoN(8);
-    primeNumbersUptoN(10);
+    // primeNumbersUptoN(10);
+    // setKthBit(15, 3);
+    convertTemperature(36.50);
 
     return 0;
 }
