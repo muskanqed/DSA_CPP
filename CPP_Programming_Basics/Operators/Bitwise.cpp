@@ -28,6 +28,7 @@ int main()
 
     // Garbage value
     int g;
+    cin >> g;
     cout << (g << -2) << endl; // Garbage value in case of Left Shift
     cout << (g >> -2);         // 0 in case of Right shift
 

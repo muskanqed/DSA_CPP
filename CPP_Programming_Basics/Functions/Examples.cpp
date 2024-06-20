@@ -218,6 +218,60 @@ void KMToMiles()
     cout << "The miles is: " << Miles << endl;
 }
 
+// Reverse Integer
+void reverseInteger()
+{
+    int x;
+    int ans = 0;
+    cout << "Enter the integer to be reversed: " << endl;
+    cin >> x;
+    bool isNeg = false;
+    if (x < 0)
+    {
+        isNeg = true;
+        x = -1 * x;
+    }
+    while (x > 0)
+    {
+        int digit = x % 10;
+        ans = ans * 10 + digit;
+        x = x / 10;
+    }
+    cout << (isNeg ? -ans : ans) << " is the reverse of given integer" << endl;
+}
+
+// Count number of set bits for given Integer
+void countSetBits()
+{
+    // Set bits are 1's in binary representation of decimal
+    int n;
+    int count = 0;
+    cout << "Enter the Integer: " << endl;
+    cin >> n;
+    while (n > 0)
+    {
+        int bit = n % 2;
+        if (bit == 1)
+        {
+            count++;
+        }
+        n = n / 2;
+    }
+    cout << count << " count of set bits" << endl;
+
+    // Using Bitwise method
+    while (n > 0)
+    {
+        int bit = n & 1;
+        if (bit == 1)
+        {
+            count++;
+        }
+        n = n >> 1;
+    }
+    cout << count << " Using Bitwise method count of set bits" << endl;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -238,7 +292,9 @@ int main()
     // convertTemperature(36.50);
     // createNumberUsingDigits();
     // printDigitsUsingInteger();
-    KMToMiles();
+    // KMToMiles();
+    // reverseInteger();
+    countSetBits();
 
     return 0;
 }
