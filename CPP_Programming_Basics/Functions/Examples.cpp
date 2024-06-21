@@ -272,6 +272,27 @@ void countSetBits()
     cout << count << " Using Bitwise method count of set bits" << endl;
 }
 
+// Sum of all Even and odd numbers from 1 to N
+void SumOfEvenOdd(int N)
+{
+    int even = 0;
+    int odd = 0;
+
+    for (int i = 1; i <= N; i++)
+    {
+        if ((i & 1) == 0)
+        {
+            even += i;
+        }
+        else
+        {
+            odd += i;
+        }
+    }
+    cout << "Sum of all even numbers from 1 to " << N << " is:" << even << endl;
+    cout << "Sum of all odd numbers from 1 to " << N << " is:" << odd << endl;
+}
+
 int main()
 {
     //     int a, b, c;
@@ -281,20 +302,22 @@ int main()
 
     // countNumbers(10);
     // checkEvenorOdd(10);
-    // findSumofN(7);
+    // findSumofN(10);
     // SumofEvenUptoN(7);
-    // checkPrime(3, 1);
+    // checkPrime(3, false);
+    // checkPrime(10, true);
     // areaCircle(5);
     // factorialofNumber(8);
     // primeNumbersUptoN(8);
     // primeNumbersUptoN(10);
     // setKthBit(15, 3);
     // convertTemperature(36.50);
-    // createNumberUsingDigits();
+    createNumberUsingDigits();
     // printDigitsUsingInteger();
     // KMToMiles();
     // reverseInteger();
-    countSetBits();
+    // countSetBits();
+    // SumOfEvenOdd(10);
 
     return 0;
 }
