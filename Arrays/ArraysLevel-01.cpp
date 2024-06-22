@@ -36,21 +36,24 @@ int main()
     // Error will be thrown
     // int brr[2] = {2,3,4,5,6};
 
-    // access values using indexing
+    // Array Indexing: access values using indexing
     int a[4] = {10, 11, 42, 93};
     cout << a[0] << " " << a[1] << " " << endl;
 
-    int n = 3;
-    int arr[3];
+    // Taking input in an array and printing the same
+    int n = 5;
+    int arr[5];
     for (int i = 0; i < n; i++)
     {
-        cout << "Enter the value for index " << i << endl;
+        cout << "Enter the value for index: " << i << ": ";
         cin >> arr[i];
         cout << endl;
     }
+
+    // Printing the array
     for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << " " << endl;
+        cout << arr[i] << " ";
     }
 
     // linear search in an array
