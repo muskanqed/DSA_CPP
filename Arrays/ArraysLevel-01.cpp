@@ -1,56 +1,41 @@
 #include <iostream>
 using namespace std;
 
-// Arrays
-// Continious blocks of memory
-// one of basic data structures of a particular datatype
-// Arrays are by default pass by reference
+// Array is a collection of similar datatypes
+// Why:
+// Direct Access - Indexing
+// Memory Efficiency - Continous Memory Allocation
+// Ease of use - Simple Implementation
 
-// static array - predefined array size ex int a[100]
-// methods -
-// address of op
-// size of array
+// Static Array creation: Predefined array
+// int a[10];
+// bool b[30];
+// char alphabets[26];
 
-// example
+void address_size_OfOperators()
+{
+    int a = 5;
+    int arr[10];
 
-// int arr[101];
-// char ch[102];
-// bool flags[99];
-// long num[88];
-// short [1000];
+    cout << "Address of a: " << addressof(a) << endl;
+    cout << "Address of a: " << &(a) << endl;
+    cout << "Size of a: " << sizeof(a) << endl;
 
-// symbol table [learn more about it]
-//  getting address of var or an array
-//  example
-//  &variableName
-//  int ar[10]; cout (&ar or ar ) bot gives out base address of array
-
-// to check size of an array
-// sizeof(variableName) ex sizeof(ar)
-
-// array initialization implicit
-// int ar[] = { 1,2,3,4,5,6,7,8,9,10,11}
-
-// array initialization explicit
-// int arr[5] = {2,3,4} for the left out spaces in array 0 is stored
-
-// int ar[n]; is a bad practise use dynamic arrays instead
-
-// array indexing [important]
-// array[0] 0 is an index and array[10] 10 is an index and end of array is n-1
-
-// Taking input in an array
-// int arr[5]
-// cin >> arr[0] takes input in specified array index
-// cin >> arr[1]
-// Can be taken input from for looops
-
-// arr[i] is also equal to
-// value at(base address + (datatypeSize * Index))
-// above formula give address(memory location) of the index
+    cout << "Address of arr: " << arr << endl;
+    cout << "Size of arr: " << sizeof(arr) << endl;
+}
 
 int main()
 {
+    address_size_OfOperators();
+
+    // Array Initialization
+    // int a[] = {1,78,89,99};
+    // int a[5]= { 1,2,3,4,5};
+    // int arr[5] = {2,3};
+    // Error will be thrown
+    // int brr[2] = {2,3,4,5,6};
+
     // access values using indexing
     int a[4] = {10, 11, 42, 93};
     cout << a[0] << " " << a[1] << " " << endl;
