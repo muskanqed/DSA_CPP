@@ -25,6 +25,40 @@ void address_size_OfOperators()
     cout << "Size of arr: " << sizeof(arr) << endl;
 }
 
+int Example()
+{
+    int n = 10;
+    int a[10];
+
+    // Taking the input in array
+    for (int i = 0; i < n; i++)
+    {
+        cout << endl
+             << "Enter the value of index " << i << ": ";
+        cin >> a[i];
+        cout << endl;
+    }
+
+    // Printing double of array
+    for (int i = 0; i < n; i++)
+    {
+        a[i] = a[i] * 2;
+        cout << a[i] << " ";
+    }
+
+    // Printing sum of array
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum = sum + a[i];
+    }
+
+    cout << endl
+         << "Printing the sum of array: " << sum << " ";
+
+    return 0;
+}
+
 int main()
 {
     address_size_OfOperators();
@@ -55,6 +89,8 @@ int main()
     {
         cout << arr[i] << " ";
     }
+
+    Example();
 
     // linear search in an array
     // find 3
