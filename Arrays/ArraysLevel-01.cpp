@@ -92,18 +92,22 @@ int main()
 
     Example();
 
+    // Liner Search
+
     // linear search in an array
     // find 3
     // flag represents value found or not
-    // true - found false - not found
+    // true - found 
+    // false - not found
     // convert this into a function
 
     int b[5] = {0, 1, 2, 3, 4};
+    int target = 4;
     bool bflag = false;
 
     for (int i = 0; i < sizeof(b); i++)
     {
-        if (b[i] == 3)
+        if (b[i] == target)
         {
             bflag = 1;
             break;
@@ -112,11 +116,13 @@ int main()
 
     if (bflag == 1)
     {
-        cout << "target found " << endl;
+        cout << endl
+             << "Target found " << endl;
     }
     else
     {
-        cout << "target not found " << endl;
+        cout << endl
+             << "Target not found " << endl;
     }
 
     // count 0's and 1's in an array
