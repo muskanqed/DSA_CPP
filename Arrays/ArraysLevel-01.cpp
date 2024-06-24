@@ -59,6 +59,19 @@ int Example()
     return 0;
 }
 
+// Array and Functions
+bool lineraSearch(int array[], int size, int search)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (array[i] == search)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main()
 {
     address_size_OfOperators();
@@ -70,7 +83,8 @@ int main()
     // Error will be thrown
     // int brr[2] = {2,3,4,5,6};
 
-    // Array Indexing: access values using indexing
+    // Array Indexing:
+    // access values using indexing
     int a[4] = {10, 11, 42, 93};
     cout << a[0] << " " << a[1] << " " << endl;
 
@@ -90,6 +104,10 @@ int main()
         cout << arr[i] << " ";
     }
 
+    // arr[i] is also equal to
+    // value at(base address + (datatypeSize * Index))
+    // above formula give address(memory location) of the index
+
     Example();
 
     // Liner Search
@@ -97,7 +115,7 @@ int main()
     // linear search in an array
     // find 3
     // flag represents value found or not
-    // true - found 
+    // true - found
     // false - not found
     // convert this into a function
 
@@ -123,6 +141,21 @@ int main()
     {
         cout << endl
              << "Target not found " << endl;
+    }
+
+    int array[5] = {1, 2, 3, 4, 5};
+    int size = 5;
+    int search = 8;
+
+    bool ans = lineraSearch(array, size, search);
+
+    if (ans == 1)
+    {
+        cout << "Search found" << endl;
+    }
+    else
+    {
+        cout << "Search not found" << endl;
     }
 
     // count 0's and 1's in an array
