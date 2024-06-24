@@ -189,10 +189,10 @@ int main()
     // Best Practice: to find minimum / maximum number initialize the varibale with int_max and int_min
     // Reason: so that it does not overflow or search beyond its limits
     int minArray[] = {10, 30, 101, 2, 1, 0};
-    int num = 6;
+    int minArraylength = 6;
     int minAns = INT_MAX;
 
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < minArraylength; i++)
     {
         if (minArray[i] < minAns)
         {
@@ -203,8 +203,49 @@ int main()
     cout << "The minimum number in Array: " << minAns << endl;
 
     // Reverse an array
+    // Using Swap
+    int revArray[] = {10, 20, 30, 40, 50, 70};
+    int revArrayLength = 6;
+    int left = 0;
+    int right = revArrayLength - 1;
 
-    // left > right break
+    // For odd number like 7 we use (left <= right) condition
+    while (left <= right)
+    {
+        swap(revArray[left], revArray[right]);
+        left++;
+        right--;
+    }
+    for (int i = 0; i < revArrayLength; i++)
+    {
+        cout << revArray[i] << " ";
+    }
 
-    // extreme print in an array
+    cout << endl;
+
+    // Same can be done by using for
+    // for(left=0;right=revArrayLength;left<=right,left++,right--)
+
+    // Extreme Print in an array
+    int extArray[] = {10, 20, 30, 40, 50};
+    int extArrayLength = 5;
+    int l = 0;
+    int r = extArrayLength - 1;
+
+    // For odd number like 7 we use (left <= right) condition
+    while (l <= r)
+    {
+        if (l == r)
+        {
+            cout << extArray[l] << " ";
+        }
+        else
+        {
+            cout << extArray[l] << " ";
+            cout << extArray[r] << " ";
+        }
+        l++;
+        r--;
+    }
+    return 0;
 }
