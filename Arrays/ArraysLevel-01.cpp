@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits.h>
 using namespace std;
 
 // Array is a collection of similar datatypes
@@ -40,11 +41,11 @@ int Example()
     }
 
     // Printing double of array
-    for (int i = 0; i < n; i++)
-    {
-        a[i] = a[i] * 2;
-        cout << a[i] << " ";
-    }
+    // for (int i = 0; i < n; i++)
+    // {
+    //     a[i] = a[i] * 2;
+    //     cout << a[i] << " ";
+    // }
 
     // Printing sum of array
     int sum = 0;
@@ -70,6 +71,26 @@ bool lineraSearch(int array[], int size, int search)
         }
     }
     return false;
+}
+
+// count 0's and 1's in an array
+void countZeroOnes(int count[], int length)
+{
+    int zeroCount = 0;
+    int oneCount = 0;
+    for (int i = 0; i < length; i++)
+    {
+        if (count[i] == 0)
+        {
+            zeroCount++;
+        }
+        else
+        {
+            oneCount++;
+        }
+    }
+    cout << "Zero Count: " << zeroCount << endl;
+    cout << "One Count: " << oneCount << endl;
 }
 
 int main()
@@ -111,14 +132,12 @@ int main()
     Example();
 
     // Liner Search
-
     // linear search in an array
     // find 3
     // flag represents value found or not
     // true - found
     // false - not found
     // convert this into a function
-
     int b[5] = {0, 1, 2, 3, 4};
     int target = 4;
     bool bflag = false;
@@ -143,6 +162,7 @@ int main()
              << "Target not found " << endl;
     }
 
+    // Array and Functions
     int array[5] = {1, 2, 3, 4, 5};
     int size = 5;
     int search = 8;
@@ -159,17 +179,31 @@ int main()
     }
 
     // count 0's and 1's in an array
-    int c[10] = {0, 1, 2, 3, 4, 0, 1, 2, 1, 0};
+    int count[] = {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1};
+    int length = 15;
 
-    // minimum number in an array
-    // requires #include limits.h INT_MAX, INT_MIN
-    // best practise
-    // to find minimum / maximum number initialize the varibale with int_max and int_min
-    // so that it does not overflow or search beyond its limits
+    countZeroOnes(count, length);
 
-    // maximum number in an array
+    // Find the minimum value in an array
+    // Requires #include limits.h INT_MAX, INT_MIN
+    // Best Practice: to find minimum / maximum number initialize the varibale with int_max and int_min
+    // Reason: so that it does not overflow or search beyond its limits
+    int minArray[] = {10, 30, 101, 2, 1, 0};
+    int num = 6;
+    int minAns = INT_MAX;
+
+    for (int i = 0; i < num; i++)
+    {
+        if (minArray[i] < minAns)
+        {
+            minAns = minArray[i];
+            // minAns = min(a[i],minAns);
+        }
+    }
+    cout << "The minimum number in Array: " << minAns << endl;
 
     // Reverse an array
+
     // left > right break
 
     // extreme print in an array
