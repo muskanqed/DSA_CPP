@@ -224,7 +224,7 @@ int main()
     cout << endl;
 
     // Same can be done by using for
-    // for(left=0;right=revArrayLength;left<=right,left++,right--)
+    // for(left=0;right=revArrayLength-1;left<=right,left++,right--)
 
     // Extreme Print in an array
     int extArray[] = {10, 20, 30, 40, 50};
