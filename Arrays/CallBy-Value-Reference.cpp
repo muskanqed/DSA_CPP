@@ -43,10 +43,10 @@ int main()
     cout << "in: " << in << endl;
 
     // Call by Reference
-    int ref;
-    cin >> ref;
-    incrementBy1ByReference(ref);
-    cout << "ref: " << ref << endl;
+    int d;
+    cin >> d;
+    incrementBy1ByReference(d);
+    cout << "d: " << d << endl;
 
     return 0;
 }
