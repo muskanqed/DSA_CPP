@@ -41,6 +41,33 @@ void printTriplets(int t[], int tlength)
     }
 }
 
+void sortZeroToOne(int arr[], int n)
+{
+    int zerCount = 0;
+    int oneCount = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == 0)
+        {
+            zerCount++;
+        }
+        if (arr[i] == 1)
+        {
+            oneCount++;
+        }
+    }
+    int i = 0;
+    for (i = 0; i < zerCount; i++)
+    {
+        arr[i] = 0;
+    }
+    for (int j = i; j < n; j++)
+    {
+        arr[j] = 1;
+    }
+}
+
 int main()
 {
     // int arr[] = {1, 2, 3, 2, 3, 7, 7, 8, 9, 9, 1};
@@ -57,6 +84,18 @@ int main()
     int t[] = {1, 2, 3};
     int tlength = 3;
     printTriplets(t, tlength);
+
+    // sorting
+    // count 0's and 1's and place it in a sep aarray
+
+    int arr[] = {0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0};
+    int nn = 12;
+    sortZeroToOne(arr, nn);
+    for (int i = 0; i < nn; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
