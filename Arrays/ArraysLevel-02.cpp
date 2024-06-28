@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// Array is by default Call By Reference
 // Get the unique element from the array
 int getUnique(int arr[], int n)
 {
@@ -41,24 +42,28 @@ void printTriplets(int t[], int tlength)
     }
 }
 
+// Sort 0's and 1's
 void sortZeroToOne(int arr[], int n)
 {
-    int zerCount = 0;
+    // Count all 0's and 1's
+    int zeroCount = 0;
     int oneCount = 0;
 
     for (int i = 0; i < n; i++)
     {
         if (arr[i] == 0)
         {
-            zerCount++;
+            zeroCount++;
         }
         if (arr[i] == 1)
         {
             oneCount++;
         }
     }
+
+    // Place )'s and then 1's
     int i = 0;
-    for (i = 0; i < zerCount; i++)
+    for (i = 0; i < zeroCount; i++)
     {
         arr[i] = 0;
     }
@@ -66,6 +71,31 @@ void sortZeroToOne(int arr[], int n)
     {
         arr[j] = 1;
     }
+
+    // using while loop
+    // int index = 0;
+    // while(zerCount--) {
+    //     arr[index] = 0;
+    //     index++;
+    // }
+
+    // while(oneCount--) {
+    //     arr[index] = 1;
+    //     index++;
+    // }
+}
+
+// Shift right all array elements by 1
+void shiftArray(int shift[], int slength)
+{
+    int temp = shift[slength - 1];
+
+    for (int i = slength - 1; i >= 1; i--)
+    {
+        shift[i] = shift[i - 1];
+    }
+
+    shift[0] = temp;
 }
 
 int main()
@@ -85,17 +115,29 @@ int main()
     int tlength = 3;
     printTriplets(t, tlength);
 
-    // sorting
-    // count 0's and 1's and place it in a sep aarray
+    // Sort 0's and 1's
+    // count 0's and 1's and place it in a separately array
 
-    int arr[] = {0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0};
-    int nn = 12;
-    sortZeroToOne(arr, nn);
-    for (int i = 0; i < nn; i++)
+    int count[] = {0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0};
+    int clength = 12;
+    sortZeroToOne(count, clength);
+    // Printing array after sorting
+    for (int i = 0; i < clength; i++)
     {
-        cout << arr[i] << " ";
+        cout << count[i] << " ";
     }
     cout << endl;
+
+    // Shift right all array elements by 1
+    int shift[] = {10, 20, 30, 40, 50, 60};
+    int slength = 6;
+
+    shiftArray(shift, slength);
+
+    for (int i = 0; i < slength; i++)
+    {
+        cout << shift[i] << " ";
+    }
 
     return 0;
 }
