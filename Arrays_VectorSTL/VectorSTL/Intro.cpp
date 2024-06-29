@@ -48,11 +48,26 @@ void printVector(vector<int> v)
     {
         cout << v[i] << " ";
     }
+    cout << endl;
 }
 
-int main()
+void vectorCapacitySize()
 {
-    basicArrayOps();
+    vector<int> v;
+    // Capacity and Size of Vector
+    while (v.size() < 10)
+    {
+        int d;
+        cout << endl
+             << "Enter vector element" << endl;
+        cin >> d;
+        v.push_back(d);
+        cout << "Capacity: " << v.capacity() << " Size: " << v.size() << endl;
+    }
+}
+
+void basicVectorOps()
+{
 
     // Vector
     // Declaring Vector
@@ -61,9 +76,44 @@ int main()
     // Inserting in vectors
     v.push_back(1);
     v.push_back(2);
-    v.push_back(2);
+    v.push_back(3);
 
     // Printing Vectors
     printVector(v);
+
+    // Pop/Delete from vector
+    // It always gets deleted from END
+    v.pop_back();
+    printVector(v);
+
+    v.pop_back();
+    printVector(v);
+}
+
+int main()
+{
+    // basicArrayOps();
+    // vectorCapacitySize();
+    // basicVectorOps();
+
+    // Taking input from user into vector
+    vector<int> v;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        int d;
+        cin >> d;
+        v.push_back(d);
+    }
+
+    printVector(v);
+
+    for (int i = 0; i < n; i++)
+    {
+        v.push_back(100);
+    }
+    printVector(v);
+
     return 0;
 }
