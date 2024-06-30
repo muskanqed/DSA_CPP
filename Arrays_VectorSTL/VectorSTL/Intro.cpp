@@ -46,7 +46,10 @@ void printVector(vector<int> v)
 
     for (int i = 0; i < size; i++)
     {
-        cout << v[i] << " ";
+        // cout << v[i] << " ";
+
+        // Method 2 to print a vector
+        cout << v.at(i) << " ";
     }
     cout << endl;
 }
@@ -90,12 +93,8 @@ void basicVectorOps()
     printVector(v);
 }
 
-int main()
+void inputFromUserInVector()
 {
-    // basicArrayOps();
-    // vectorCapacitySize();
-    // basicVectorOps();
-
     // Taking input from user into vector
     vector<int> v;
     int n;
@@ -109,11 +108,73 @@ int main()
 
     printVector(v);
 
+    // Adding a data to vector
     for (int i = 0; i < n; i++)
     {
         v.push_back(100);
     }
+
+    // clear or delete everything in a vector
+    v.clear();
+    v.push_back(90);
     printVector(v);
+}
+
+void vectorInitializationMethods()
+{
+
+    // Vector Initialization
+    // Init with size then -1 that is value
+    vector<int> arr(5, -1);
+    // Even after init you can add the data into same vector
+    arr.push_back(75);
+    printVector(arr);
+
+    // Second Method
+    // vector<int> arr2 ={1,2,3,4,5};
+    vector<int> arr2{1, 2, 3, 4, 5};
+    printVector(arr2);
+
+    // Copy a vector
+    vector<int> arr3(arr2);
+    printVector(arr3);
+}
+
+void printVectorNativeMethod(vector<char> c)
+{
+
+    // for each looop
+    for (auto it : c)
+    {
+        cout << it << " ";
+    }
+}
+
+void vectorWithDiffDataTypes()
+{
+    vector<char> c;
+    c.push_back('a');
+    c.push_back('b');
+    c.push_back('c');
+
+    cout << "Front Element: " << c[0] << endl;
+    cout << "End Element: " << c[c.size() - 1] << endl;
+
+    //  Method 2 Inbuilt
+    cout << "Front Element: " << c.front() << endl;
+    cout << "End Element: " << c.back() << endl;
+
+    printVectorNativeMethod(c);
+}
+
+int main()
+{
+    // basicArrayOps();
+    // vectorCapacitySize();
+    // basicVectorOps();
+    // inputFromUserInVector();
+    // vectorInitializationMethods();
+    vectorWithDiffDataTypes();
 
     return 0;
 }
