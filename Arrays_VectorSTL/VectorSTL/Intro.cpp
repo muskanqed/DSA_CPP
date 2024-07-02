@@ -131,7 +131,7 @@ void vectorInitializationMethods()
     printVector(arr);
 
     // Second Method
-    // vector<int> arr2 ={1,2,3,4,5};
+    // vector<int> arr2 = {1,2,3,4,5};
     vector<int> arr2{1, 2, 3, 4, 5};
     printVector(arr2);
 
@@ -175,6 +175,11 @@ int main()
     // inputFromUserInVector();
     // vectorInitializationMethods();
     vectorWithDiffDataTypes();
+
+    // Vector
+    vector<int> v;
+    cout << v.empty() << endl;
+    cout << v.size() << endl;
 
     return 0;
 }
