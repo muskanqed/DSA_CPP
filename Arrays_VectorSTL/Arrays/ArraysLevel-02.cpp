@@ -61,7 +61,7 @@ void sortZeroToOne(int arr[], int n)
         }
     }
 
-    // Place )'s and then 1's
+    // Place 0's and then 1's
     int i = 0;
     for (i = 0; i < zeroCount; i++)
     {
@@ -74,7 +74,7 @@ void sortZeroToOne(int arr[], int n)
 
     // using while loop
     // int index = 0;
-    // while(zerCount--) {
+    // while(zeroCount--) {
     //     arr[index] = 0;
     //     index++;
     // }
