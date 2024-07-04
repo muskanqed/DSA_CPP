@@ -79,11 +79,29 @@ void rotateArray()
     }
 }
 
+void missingNumbers1ToN()
+{
+    // AP = n/2(1+n) to get the sum of n numbers
+    vector<int> nums = {0, 2, 1, 3, 4, 6};
+    int n = nums.size();
+    int sum = 0;
+    int missingNumber;
+    for (int i = 0; i < n; i++)
+    {
+        sum = sum + nums[i];
+    }
+    int Totalsum = (n / 2) * (1 + n);
+
+    missingNumber = Totalsum - sum;
+    cout << missingNumber;
+}
+
 int main()
 {
     // shiftNegativeNumbersLeftSide();
     /*vector<int> nums = {1, 0, 0, 2, 2, 0, 0, 1, 2};
      sortColors(nums);*/
-    rotateArray();
+    // rotateArray();
+    missingNumbers1ToN();
     return 0;
 }
