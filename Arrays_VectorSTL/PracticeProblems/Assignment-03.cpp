@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 bool twoSum()
@@ -47,14 +48,46 @@ bool twoSum2PointerApproach()
     return false;
 }
 
+// Pivot Index
+// Very important leetcode question
+
+int pivotIndexBruteForce()
+{
+    vector<int> pivotIndex = {1, 7, 3, 6, 5, 6};
+    int n = pivotIndex.size();
+    for (int i = 0; i < n; i++)
+    {
+        int lsum = 0;
+        int rsum = 0;
+        for (int j = 0; j < i; j++)
+        {
+            lsum += pivotIndex[j];
+        }
+        for (int j = i + 1; j < n; j++)
+        {
+            rsum += pivotIndex[j];
+        }
+        cout << "Index: " << i << " " << "Left Sum: " << lsum << " " << "Right Sum: " << rsum << endl;
+        if (lsum == rsum)
+            return i;
+    }
+    return -1;
+}
+
 int main()
 {
     // Two Sum two Approaches
-    /* Method - 01 not recommended to use (O(n^2))
+    /*
+    Method - 01 not recommended to use (O(n^2))
     int ans = twoSum();
     cout << ans;
     Method - 02 recommended to use (O(nlogn))
     int ans = twoSum2PointerApproach();
     cout << ans;
-    return 0; */
+    */
+
+    int index = pivotIndexBruteForce();
+    cout << index;
+
+    return 0;
 }
