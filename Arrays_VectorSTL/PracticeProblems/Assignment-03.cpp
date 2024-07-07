@@ -3,6 +3,8 @@
 #include <vector>
 using namespace std;
 
+// Two Sum two Approaches
+// Method - 01
 bool twoSum()
 // Also known as KeyPairs Problem
 {
@@ -23,6 +25,7 @@ bool twoSum()
     return false;
 }
 
+// Method - 02
 bool twoSum2PointerApproach()
 {
     int arr[] = {1, 45, 8, 0, 2, 88};
@@ -48,9 +51,9 @@ bool twoSum2PointerApproach()
     return false;
 }
 
-// Pivot Index
+// Pivot Index two Approaches
 // Very important leetcode question
-
+// Method - 01
 int pivotIndexBruteForce()
 {
     vector<int> pivotIndex = {1, 7, 3, 6, 5, 6};
@@ -74,6 +77,30 @@ int pivotIndexBruteForce()
     return -1;
 }
 
+// Method - 02
+int prefixSumApproach()
+{
+    vector<int> pivotIndex = {1, 7, 3, 6, 5, 6};
+    vector<int> lsum(pivotIndex.size(), 0);
+    vector<int> rsum(pivotIndex.size(), 0);
+    for (int i = 1; i < pivotIndex.size(); i++)
+    {
+        lsum[i] = lsum[i - 1] + pivotIndex[i - 1];
+    }
+    for (int i = pivotIndex.size() - 2; i >= 0; i--)
+    {
+        rsum[i] = rsum[i + 1] + pivotIndex[i + 1];
+    }
+
+    // Starting from left most index that is 0 because we want left index
+    for (int i = 0; i < pivotIndex.size(); i++)
+    {
+        if (lsum[i] == rsum[i])
+            return i;
+    }
+    return -1;
+}
+
 int main()
 {
     // Two Sum two Approaches
@@ -86,8 +113,15 @@ int main()
     cout << ans;
     */
 
+    // Pivot Index two Approaches
+    /*
+    Method - 01 time complexity (O(n^2)) and space complexity (O(1))
     int index = pivotIndexBruteForce();
     cout << index;
+    Method - 02 time complexity (O(n))
+    int index = prefixSumApproach();
+    cout << index;
+    */
 
     return 0;
 }
