@@ -101,6 +101,80 @@ int prefixSumApproach()
     return -1;
 }
 
+// Sort colors
+// Method - 01
+void sortColorsMethod01()
+{
+    vector<int> sort = {0, 1, 2, 0, 0, 0, 2, 1, 1};
+    int n = sort.size();
+    int zeros = 0, ones = 0, twos = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (sort[i] == 0)
+            zeros++;
+        else if (sort[i] == 1)
+            ones++;
+        else
+            twos++;
+    }
+    int i = 0;
+    while (zeros--)
+    {
+        sort[i] = 0;
+        i++;
+    }
+    while (ones--)
+    {
+        sort[i] = 1;
+        i++;
+    }
+    while (twos--)
+    {
+        sort[i] = 2;
+        i++;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << sort[i] << " ";
+    }
+}
+
+// Three Pointer Approach
+// Method - 02
+void sortColorsMethod02()
+{
+    vector<int> sort = {0, 1, 2, 0, 0, 0, 2, 1, 1};
+    int n = sort.size();
+    int low = 0;
+    int med = 0;
+    int high = n - 1;
+
+    while (med <= high)
+    {
+        if (sort[med] == 0)
+        {
+            swap(sort[low], sort[med]);
+            low++;
+            med++;
+        }
+        else if (sort[med] == 1)
+        {
+            med++;
+        }
+        else
+        {
+            swap(sort[med], sort[high]);
+            med++;
+            high--;
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << sort[i] << " ";
+    }
+}
+
 int main()
 {
     // Two Sum two Approaches
@@ -122,6 +196,12 @@ int main()
     int index = prefixSumApproach();
     cout << index;
     */
+
+    // Sort colors
+    // Method - 01 time complexity (O(n)) and space (O(1))
+    // Not recommened
+    // sortColorsMethod01();
+    sortColorsMethod02();
 
     return 0;
 }
