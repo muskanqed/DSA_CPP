@@ -193,11 +193,13 @@ int missingNumber0toN()
     return n;
 }
 
+// Method - 02
 int missingNumberUsingXOR()
 {
     vector<int> nums = {0, 1};
     int n = nums.size();
     int miss = 0;
+
     for (int i = 0; i < n; i++)
     {
         miss ^= nums[i];
@@ -208,6 +210,28 @@ int missingNumberUsingXOR()
         miss ^= i;
     }
     return miss;
+}
+
+// Move Negative Number to left
+void negativeNumbersToLeft()
+{
+    vector<int> nums = {1, -9, -2, -1};
+    int n = nums.size();
+    int j = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+
+        if (nums[i] < 0)
+        {
+            swap(nums[i], nums[j]);
+            j++;
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << nums[i] << " ";
+    }
 }
 
 int main()
@@ -246,10 +270,13 @@ int main()
     Method - 01 Time complexity (nlog(n)) and space O(1)
     int miss = missingNumber0toN();
     cout << miss;
-    */
-
+    Method - 02 Time complexity (O(n)) and space O(1)
     int miss = missingNumberUsingXOR();
     cout << miss;
+    */
+
+    // Move Negative Number to left
+    negativeNumbersToLeft();
 
     return 0;
 }
