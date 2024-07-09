@@ -102,7 +102,7 @@ int prefixSumApproach()
 }
 
 // Sort colors
-// Method - 01
+// Method - 01: Counting Approach
 void sortColorsMethod01()
 {
     vector<int> sort = {0, 1, 2, 0, 0, 0, 2, 1, 1};
@@ -140,8 +140,7 @@ void sortColorsMethod01()
     }
 }
 
-// Three Pointer Approach
-// Method - 02
+// Method - 02: Two Pointer Approach
 void sortColorsMethod02()
 {
     vector<int> sort = {0, 1, 2, 0, 0, 0, 2, 1, 1};
@@ -175,6 +174,42 @@ void sortColorsMethod02()
     }
 }
 
+// Missing Number
+// Method - 01
+int missingNumber0toN()
+{
+    vector<int> nums = {0, 1};
+    int n = nums.size();
+
+    sort(nums.begin(), nums.end());
+
+    for (int i = 0; i < n; i++)
+    {
+        if (i == nums[i])
+            continue;
+        else
+            return i;
+    }
+    return n;
+}
+
+int missingNumberUsingXOR()
+{
+    vector<int> nums = {0, 1};
+    int n = nums.size();
+    int miss = 0;
+    for (int i = 0; i < n; i++)
+    {
+        miss ^= nums[i];
+    }
+
+    for (int i = 0; i <= n; i++)
+    {
+        miss ^= i;
+    }
+    return miss;
+}
+
 int main()
 {
     // Two Sum two Approaches
@@ -198,10 +233,23 @@ int main()
     */
 
     // Sort colors
-    // Method - 01 time complexity (O(n)) and space (O(1))
-    // Not recommened
-    // sortColorsMethod01();
+    /*
+    Method - 01 time complexity (O(n)) and space (O(1))
+    Not recommened
+    sortColorsMethod01();
+    Method - 02
     sortColorsMethod02();
+    */
+
+    // Missing Number
+    /*
+    Method - 01 Time complexity (nlog(n)) and space O(1)
+    int miss = missingNumber0toN();
+    cout << miss;
+    */
+
+    int miss = missingNumberUsingXOR();
+    cout << miss;
 
     return 0;
 }
