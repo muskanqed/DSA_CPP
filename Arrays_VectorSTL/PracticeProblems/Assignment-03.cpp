@@ -213,6 +213,7 @@ int missingNumberUsingXOR()
 }
 
 // Move Negative Number to left
+// Method - 01
 void negativeNumbersToLeft()
 {
     vector<int> nums = {1, -9, -2, -1};
@@ -232,6 +233,71 @@ void negativeNumbersToLeft()
     {
         cout << nums[i] << " ";
     }
+}
+
+// Method - 02
+// Using Dutch National Flag method
+void negativeNumbersToLeftMethod02()
+{
+    vector<int> nums = {1, -9, -2, -1};
+    int n = nums.size();
+    int low = 0;
+    int high = n - 1;
+    while (low < high)
+    {
+        if (nums[low] < 0)
+        {
+            low++;
+        }
+        else if (nums[high] > 0)
+        {
+            high--;
+        }
+        else
+        {
+            swap(nums[low], nums[high]);
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << nums[i] << " ";
+    }
+}
+
+// Find Duplicate Number
+// Method - 01
+int duplicateNumber()
+{
+    int a[] = {3, 4, 2, 2, 1};
+    int n = sizeof(a) / sizeof(int);
+
+    sort(a, a + n);
+    // Its n-1 because its i+1 which is already visited
+    // while comparing so no need to revisit it as there is no number to compare after i
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (a[i] == a[i + 1])
+        {
+            return a[i];
+        }
+    }
+    return -1;
+}
+
+int duplicateNumberUsingNegativeMarking()
+{
+    vector<int> nums = {3, 4, 2, 2, 1};
+    int n = nums.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        int index = abs(nums[i]);
+        if (nums[index] < 0)
+            return index;
+        else
+            nums[index] *= -1;
+    }
+    return 0;
 }
 
 int main()
@@ -276,7 +342,20 @@ int main()
     */
 
     // Move Negative Number to left
+    /*
+    Method - 01
     negativeNumbersToLeft();
+    Method - 02 Time complexity (O(n)) and space O(1)
+    negativeNumbersToLeftMethod02();
+    */
+
+    // Find Duplicate Number
+    /*
+    Method - 01 Time complexity (nlog(n)) and space O(n)
+    cout << duplicateNumber();
+    Method - 02 Time complexity (O(n)) and space O(1)
+    cout << duplicateNumberUsingNegativeMarking();
+   */
 
     return 0;
 }
