@@ -284,6 +284,7 @@ int duplicateNumber()
     return -1;
 }
 
+// Method - 02
 int duplicateNumberUsingNegativeMarking()
 {
     vector<int> nums = {3, 4, 2, 2, 1};
@@ -298,6 +299,39 @@ int duplicateNumberUsingNegativeMarking()
             nums[index] *= -1;
     }
     return 0;
+}
+
+// Method - 03
+// Positioning Method
+int duplicateNumberPositioningMethod()
+{
+    vector<int> nums = {3, 4, 2, 2, 1};
+    int n = nums.size();
+    while (nums[0] != nums[nums[0]])
+    {
+        swap(nums[0], nums[nums[0]]);
+    }
+
+    return nums[0];
+}
+
+// Missing Number with Duplicate
+// Method - 01
+void missingNumberDuplicate()
+{
+    vector<int> nums = {3, 4, 2, 2, 1};
+    int n = nums.size();
+    for (int i = 0; i < n; i++)
+    {
+        int index = abs(nums[i]);
+        if (nums[index - 1] > 0)
+            nums[index - 1] *= -1;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] > 0)
+            cout << i + 1 << " ";
+    }
 }
 
 int main()
@@ -355,7 +389,12 @@ int main()
     cout << duplicateNumber();
     Method - 02 Time complexity (O(n)) and space O(1)
     cout << duplicateNumberUsingNegativeMarking();
+    Method - 03 Time complexity (O(n)) and space O(1)
+    cout << duplicateNumberPositioningMethod();
    */
+
+    // Missing Number with Duplicate
+    missingNumberDuplicate();
 
     return 0;
 }
