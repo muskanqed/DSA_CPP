@@ -316,13 +316,13 @@ int duplicateNumberPositioningMethod()
 }
 
 // Missing Number with Duplicate
-// Method - 01
+// Method - 01 Negative Marking
 void missingNumberDuplicate()
 {
     vector<int> nums = {3, 4, 2, 2, 1};
     int n = nums.size();
     for (int i = 0; i < n; i++)
-    {
+    { // if nums[i] is negative then we take abs value of nums[i]
         int index = abs(nums[i]);
         if (nums[index - 1] > 0)
             nums[index - 1] *= -1;
@@ -331,6 +331,34 @@ void missingNumberDuplicate()
     {
         if (nums[i] > 0)
             cout << i + 1 << " ";
+    }
+}
+
+// Method - 02 Sorting and swapping
+void missingNumberDuplicateSAndS()
+{
+    vector<int> nums = {3, 4, 2, 2, 1};
+    int n = nums.size();
+    int i = 0;
+    while (i < n)
+    {
+        int index = nums[i] - 1;
+        if (nums[i] != nums[index])
+        {
+            swap(nums[i], nums[index]);
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] != i + 1)
+        {
+            cout << i + 1 << " ";
+        }
     }
 }
 
@@ -394,7 +422,12 @@ int main()
    */
 
     // Missing Number with Duplicate
+    /*
+    Method - 01 Negative Marking
     missingNumberDuplicate();
+    Method - 02 Sorting and swapping
+    missingNumberDuplicateSAndS();
+    */
 
     return 0;
 }
