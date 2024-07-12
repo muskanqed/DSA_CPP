@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <unordered_map>
+#include <hash_map>
 using namespace std;
 
 // Two Sum two Approaches
@@ -363,8 +365,42 @@ void missingNumberDuplicateSAndS()
 }
 
 // First Repeating Element
-void firstRepeatingElement(){
+// Method - 01
+int firstRepeatingElement()
+{
+    int a[] = {1, 5, 3, 2, 5, 4};
+    int n = 6;
+    for (int i = 0; i < n; i++)
+    {
+        bool isRepeated = false;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] == a[j])
+            {
+                isRepeated = true;
+                return a[i];
+            }
+        }
+    }
+    return -1;
+}
 
+// Method - 01
+int firstRepeatingElementUsingHash()
+{
+    int a[] = {1, 2, 3, 3, 5, 4};
+    int n = 6;
+    unordered_map<int, int> hash;
+    for (int i = 0; i < n; i++)
+    {
+        hash[a[i]]++;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (hash[a[i]] > 1)
+            return i + 1;
+    }
+    return -1;
 }
 
 int main()
@@ -432,6 +468,14 @@ int main()
     missingNumberDuplicate();
     Method - 02 Sorting and swapping
     missingNumberDuplicateSAndS();
+    */
+
+    // First Repeating Element
+    /*
+    Method - 01 time complexity (O(n^2)) and space complexity (O(1))
+    cout << firstRepeatingElement();
+    Method - 02 Time complexity (O(n)) and space O(n)
+    cout << firstRepeatingElementUsingHash();
     */
 
     return 0;
