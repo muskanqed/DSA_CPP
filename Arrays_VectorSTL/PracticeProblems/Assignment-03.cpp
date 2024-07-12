@@ -362,6 +362,11 @@ void missingNumberDuplicateSAndS()
     }
 }
 
+// First Repeating Element
+void firstRepeatingElement(){
+
+}
+
 int main()
 {
     // Two Sum two Approaches
