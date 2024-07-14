@@ -3,6 +3,7 @@
 #include <vector>
 #include <unordered_map>
 #include <hash_map>
+#include <set>
 using namespace std;
 
 // Two Sum two Approaches
@@ -403,6 +404,52 @@ int firstRepeatingElementUsingHash()
     return -1;
 }
 
+// Common Elements in 3 sorted array
+void commonElementInSortedArray()
+{
+    int a[] = {1, 2, 3, 10, 20, 30};
+    int b[] = {10, 20, 30, 40, 50, 60, 70};
+    int c[] = {1, 2, 10, 20, 30};
+    int n1 = sizeof(a) / sizeof(int);
+    int n2 = sizeof(b) / sizeof(int);
+    int n3 = sizeof(c) / sizeof(int);
+
+    int i, j, k;
+    i = j = k = 0;
+    vector<int> v;
+    set<int> st;
+    while (i < n1 && j < n2 && k < n3)
+    {
+        if (a[i] == b[j] && b[j] == c[k])
+        {
+            st.insert(a[i]);
+            i++;
+            j++;
+            k++;
+        }
+        else if (a[i] < b[j])
+        {
+            i++;
+        }
+        else if (b[j] < c[k])
+        {
+            j++;
+        }
+        else
+        {
+            k++;
+        }
+    }
+    for (auto i : st)
+    {
+        v.push_back(i);
+    }
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
 int main()
 {
     // Two Sum two Approaches
@@ -478,5 +525,11 @@ int main()
     cout << firstRepeatingElementUsingHash();
     */
 
+    // Common Elements in 3 sorted array
+    /*
+    Expected Time Complexity: 0(n1 + n2 + n3)
+    Expected Auxiliary Space: 0(n1 + n2 + n3)
+    commonElementInSortedArray();
+    */
     return 0;
 }
