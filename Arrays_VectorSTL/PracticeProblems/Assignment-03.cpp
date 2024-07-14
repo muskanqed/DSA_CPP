@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <unordered_map>
-#include <hash_map>
 #include <set>
 using namespace std;
 
@@ -450,6 +449,37 @@ void commonElementInSortedArray()
     }
     cout << endl;
 }
+
+// Print Wave like Matrix
+void wavePrintMatrix()
+{
+    vector<vector<int>> v = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}};
+
+    int row = v.size();
+    int col = v[0].size(); // count of 1 row columns will give the size of conlumns
+
+    for (int startcol = 0; startcol < col; startcol++)
+    {
+        if ((startcol & 1) == 0) //Bracket is important here while bitwise & operation
+        {
+            for (int i = 0; i < row; i++)
+            {
+                cout << v[i][startcol] << " ";
+            }
+        }
+        else
+        {
+            for (int i = row - 1; i >= 0; i--)
+            {
+                cout << v[i][startcol] << " ";
+            }
+        }
+    }
+}
+
 int main()
 {
     // Two Sum two Approaches
@@ -531,5 +561,9 @@ int main()
     Expected Auxiliary Space: 0(n1 + n2 + n3)
     commonElementInSortedArray();
     */
+
+    // Print Wave like Matrix
+    wavePrintMatrix();
+
     return 0;
 }
