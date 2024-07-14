@@ -463,7 +463,7 @@ void wavePrintMatrix()
 
     for (int startcol = 0; startcol < col; startcol++)
     {
-        if ((startcol & 1) == 0) //Bracket is important here while bitwise & operation
+        if ((startcol & 1) == 0) // Bracket is important here while bitwise & operation
         {
             for (int i = 0; i < row; i++)
             {
@@ -477,6 +477,69 @@ void wavePrintMatrix()
                 cout << v[i][startcol] << " ";
             }
         }
+    }
+}
+
+// Spiral Print of a Matrix
+void spiralMatrix()
+{
+    vector<vector<int>> v = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}};
+
+    vector<int> ans;
+    int rows = v.size();
+    int cols = v[0].size();
+    int totalElements = rows * cols;
+
+    int startingRow = 0;
+    int endingCol = cols - 1;
+    int endingRow = rows - 1;
+    int startingCol = 0;
+
+    int count = 0;
+
+    while (count < totalElements)
+    {
+        // print starting row
+        for (int i = startingCol; i <= endingCol && count < totalElements; i++)
+        {
+            ans.push_back(v[startingRow][i]);
+            count++;
+            // if(count >= totalElements) {
+            //   break;
+            // }
+        }
+        startingRow++;
+
+        // print ending col
+        for (int i = startingRow; i <= endingRow && count < totalElements; i++)
+        {
+            ans.push_back(v[i][endingCol]);
+            count++;
+        }
+        endingCol--;
+
+        // print ending row
+        for (int i = endingCol; i >= startingCol && count < totalElements; i--)
+        {
+            ans.push_back(v[endingRow][i]);
+            count++;
+        }
+        endingRow--;
+
+        // print starting col
+        for (int i = endingRow; i >= startingRow && count < totalElements; i--)
+        {
+            ans.push_back(v[i][startingCol]);
+            count++;
+        }
+        startingCol++;
+    }
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " ";
     }
 }
 
@@ -563,7 +626,10 @@ int main()
     */
 
     // Print Wave like Matrix
-    wavePrintMatrix();
+    // wavePrintMatrix();
+
+    // Spiral Print of a Matrix
+    spiralMatrix();
 
     return 0;
 }
