@@ -543,6 +543,11 @@ void spiralMatrix()
     }
 }
 
+// Factorial of large Number
+void factorialLargeNumber()
+{
+}
+
 int main()
 {
     // Two Sum two Approaches
@@ -629,7 +634,10 @@ int main()
     // wavePrintMatrix();
 
     // Spiral Print of a Matrix
-    spiralMatrix();
+    // spiralMatrix();
+
+    // Factorial of large Number
+    factorialLargeNumber();
 
     return 0;
 }
