@@ -643,10 +643,61 @@ void duplicateNumberFromSortedArray()
         }
     }
     // while(j--)
-    for (int k = 0; k <=j; k++)
+    for (int k = 0; k <= j; k++)
     {
         cout << dup[k] << " ";
     }
+}
+
+// Maximum average of subarray of given length k
+// Method - 01 Brute Force
+double maximumAvgOfSubarrayM1()
+{
+    vector<int> nums = {1, -2, 15, 50, 51, 44};
+    int k = 4;
+    int i = 0;
+    int j = k - 1;
+    int maxSum = INT_MIN;
+    while (j < nums.size())
+    {
+        int sum = 0;
+        for (int y = i; y <= j; y++)
+        {
+            sum += nums[y];
+        }
+        maxSum = max(maxSum, sum);
+        j++;
+        i++;
+    }
+    double maxAvg = maxSum / (double)k;
+    return maxAvg;
+}
+
+// Method - 02
+// Using Sliding window Method
+double maximumAvgOfSubarrayM2()
+{
+    vector<int> nums = {1, 2, 8, 9, 10, -99, 100, 110};
+    int n = nums.size();
+    int k = 3;
+    int i = 0;
+    int j = k - 1;
+    int sum = 0;
+
+    for (int y = i; y <= j; y++)
+    {
+        sum += nums[y];
+    }
+    int maxSum = sum;
+    j++;
+    while (j < n)
+    {
+        sum -= nums[i++];
+        sum += nums[j++];
+        maxSum = max(maxSum, sum);
+    }
+    double maxAvg = maxSum / (double)k;
+    return maxAvg;
 }
 
 int main()
@@ -744,7 +795,15 @@ int main()
     // factorialLargeNumber();
 
     // Remove Duplicates from sorted array
-    duplicateNumberFromSortedArray();
+    // duplicateNumberFromSortedArray();
+
+    // Maximum average of subarray of given length k
+    /*
+    Method - 01  time complexity (O(n^2)) and space complexity (O(1))
+    cout << maximumAvgOfSubarrayM1() << endl;
+    Method - 02 time complexity (O(n)) and sapce complexity (O(1))
+    cout << maximumAvgOfSubarrayM2();;
+    */
 
     return 0;
 }
