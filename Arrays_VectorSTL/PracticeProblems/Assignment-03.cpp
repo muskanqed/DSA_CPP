@@ -546,13 +546,8 @@ void spiralMatrix()
 // Add two array
 void addTwoArray()
 {
-}
-
-// Factorial of large Number
-void factorialLargeNumber()
-{
-    vector<int> A = {1, 2, 3};
-    vector<int> B = {4, 5, 6, 7};
+    vector<int> A = {10, 20, 30, 40};
+    vector<int> B = {2, 2, 7};
     int n = A.size();
     int m = B.size();
     int carry = 0;
@@ -589,13 +584,69 @@ void factorialLargeNumber()
         ans.push_back(carry + '0');
     }
 
-    while (ans[ans.size() - 1] == 0)
+    while (ans[ans.size() - 1] == '0')
     {
         ans.pop_back();
     }
     reverse(ans.begin(), ans.end());
 
     cout << ans;
+}
+
+// Factorial of large Number
+void factorialLargeNumber()
+{
+    int N = 5;
+    vector<int> ans;
+    ans.push_back(1);
+    int carry = 0;
+    for (int i = 2; i <= N; i++)
+    {
+        for (int j = 0; j < ans.size(); j++)
+        {
+            int x = ans[j] * i + carry;
+            ans[j] = x % 10;
+            carry = x / 10;
+        }
+        if (carry)
+        {
+            ans.push_back(carry);
+        }
+        carry = 0;
+    }
+    reverse(ans.begin(), ans.end());
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i];
+    }
+}
+
+void duplicateNumberFromSortedArray()
+{
+    vector<int> dup = {0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 4};
+    int n = dup.size();
+    // Two Pointers approach
+    int i = 1;
+    int j = 0;
+    while (i < n)
+    {
+        if (dup[i] == dup[j])
+        {
+            i++;
+        }
+        else
+        {
+            // j++;
+            // dup[j] = dup[i];
+            // i++;
+            dup[++j] = dup[i++];
+        }
+    }
+    // while(j--)
+    for (int k = 0; k <=j; k++)
+    {
+        cout << dup[k] << " ";
+    }
 }
 
 int main()
@@ -687,9 +738,13 @@ int main()
     // spiralMatrix();
 
     // Add two array
-    addTwoArray();
+    // addTwoArray();
+
     // Factorial of large Number
-    factorialLargeNumber();
+    // factorialLargeNumber();
+
+    // Remove Duplicates from sorted array
+    duplicateNumberFromSortedArray();
 
     return 0;
 }
