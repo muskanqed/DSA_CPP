@@ -102,8 +102,8 @@ int findTotalOccurence()
 // Very important
 int findMissingElement()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int n = 10;
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int n = sizeof(arr);
     int s = 0;
     int e = n - 1;
     int ans = -1;
@@ -127,12 +127,36 @@ int findMissingElement()
         return n;
 }
 
+// Very Very Very important
+// Peak Element in a Mountain Array
+int peakIndexInMountainArray()
+{
+    int arr[] = {10, 20, 30, 60, 50, 40};
+    int n = sizeof(arr);
+    int s = 0;
+    int e = n - 1;
+    while (s < e)
+    {
+        int mid = s + (e - s) / 2;
+        if (arr[mid] < arr[mid + 1])
+        {
+            s = mid + 1;
+        }
+        else
+        {
+            e = mid;
+        }
+    }
+    return arr[s];
+}
+
 int main()
 {
     // cout << binarySearch();
     // cout << findFirstOccurence();
     // cout << findLastOccurence();
     // cout << findTotalOccurence();
-    cout << findMissingElement();
+    // cout << findMissingElement();
+    cout << peakIndexInMountainArray();
     return 0;
 }
