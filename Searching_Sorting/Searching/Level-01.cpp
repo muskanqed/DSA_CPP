@@ -90,6 +90,7 @@ int findLastOccurence()
     return ans;
 }
 
+// Very important
 int findTotalOccurence()
 {
     int firstOccurence = findFirstOccurence();
@@ -98,11 +99,40 @@ int findTotalOccurence()
     return totalOccurence;
 }
 
+// Very important
+int findMissingElement()
+{
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int n = 10;
+    int s = 0;
+    int e = n - 1;
+    int ans = -1;
+    while (s <= e)
+    {
+        int mid = s + (e - s) / 2;
+        int diff = arr[mid] - mid;
+        if (diff == 1)
+        {
+            s = mid + 1;
+        }
+        else
+        {
+            ans = mid;
+            e = mid - 1;
+        }
+    }
+
+    return ans + 1;
+    if (ans == 0)
+        return n;
+}
+
 int main()
 {
     // cout << binarySearch();
     // cout << findFirstOccurence();
     // cout << findLastOccurence();
-    cout << findTotalOccurence();
+    // cout << findTotalOccurence();
+    cout << findMissingElement();
     return 0;
 }
