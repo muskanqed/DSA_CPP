@@ -700,6 +700,42 @@ double maximumAvgOfSubarrayM2()
     return maxAvg;
 }
 
+// This is doubt class week-04
+// We have 3 swap methods
+// 1.Using Temp
+// 2.Using +, _
+// 3.Using XOR
+void swapUsingTemp()
+{
+    int a = 2;
+    int b = 3;
+    int temp = a;
+    a = b;
+    b = temp;
+    cout << "a = " << a << " b = " << b << endl;
+}
+
+void swapUsingArthimaticMethod()
+{
+    // this is for positive numbers
+    int a = 2;
+    int b = 3;
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    cout << "a = " << a << " b = " << b << endl;
+}
+
+void swapUsingXORMethod()
+{
+    int a = 2;
+    int b = 3;
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+    cout << "a = " << a << " b = " << b << endl;
+}
+
 int main()
 {
     // Two Sum two Approaches
@@ -804,6 +840,11 @@ int main()
     Method - 02 time complexity (O(n)) and sapce complexity (O(1))
     cout << maximumAvgOfSubarrayM2();;
     */
+
+    // Swap Methods
+    swapUsingTemp();
+    swapUsingArthimaticMethod();
+    swapUsingXORMethod();
 
     return 0;
 }
