@@ -736,6 +736,30 @@ void swapUsingXORMethod()
     cout << "a = " << a << " b = " << b << endl;
 }
 
+// Rotate Array 1D K times
+// Reversal Method
+void rotateArrayUsingReversalMethod()
+{
+    int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 3;
+    // k should not be greater the n so we include k = k % sizeof(arr)/sizeof(arr[0])
+
+    // Reverse (0, n-1)
+    reverse(arr, arr + n);
+
+    // Reverse (0, k-1)
+    reverse(arr, arr + k);
+
+    // Reverse (k, n-1)
+    reverse(arr + k, arr + n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
 int main()
 {
     // Two Sum two Approaches
@@ -842,9 +866,14 @@ int main()
     */
 
     // Swap Methods
+    /*
     swapUsingTemp();
     swapUsingArthimaticMethod();
     swapUsingXORMethod();
+    */
+
+    // Rotate Array 1D K times
+    rotateArrayUsingReversalMethod();
 
     return 0;
 }
