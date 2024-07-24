@@ -744,6 +744,7 @@ void rotateArrayUsingReversalMethod()
     int n = sizeof(arr) / sizeof(arr[0]);
     int k = 3;
     // k should not be greater the n so we include k = k % sizeof(arr)/sizeof(arr[0])
+    // 3 % 7 = 3 (9 % 9 = 0)
 
     // Reverse (0, n-1)
     reverse(arr, arr + n);
