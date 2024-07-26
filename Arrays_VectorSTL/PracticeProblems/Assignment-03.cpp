@@ -761,25 +761,30 @@ void rotateArrayUsingReversalMethod()
     }
 }
 
-vector<int> rearrangeArray(vector<int> &nums)
+// Rearrange the array elements
+int rearrangeArrayUsingBruteForce()
 {
-    vector<int> ans(nums.size(), -1);
-    int odd = 1, even = 0;
-    for (int i = 0; i < nums.size(); ++i)
+    vector<int> nums = {3, 1, -2, -5, 2, 4};
+    int n = nums.size();
+    vector<int> pos, neg, ans;
+    for (int i = 0; i < n; i++)
     {
-        int num = nums[i];
-        if (num > 0)
+        if (nums[i] > 0)
         {
-            ans[even] = num;
-            even += 2;
+            pos.push_back(nums[i]);
         }
         else
         {
-            ans[odd] = num;
-            odd += 2;
+            neg.push_back(nums[i]);
         }
     }
-    return ans;
+    for (int i = 0; i < n; i++)
+    {
+        ans.push_back(pos[i]);
+        ans.push_back(neg[i]);
+
+        cout << ans[i] << " ";
+    }
 }
 
 int main()
@@ -897,8 +902,8 @@ int main()
     // Rotate Array 1D K times
     // rotateArrayUsingReversalMethod();
 
-    vector<int> nums = {9, 10, 3, 4, 5};
-    rearrangeArray(nums);
+    // Rearrange the array elements
+    rearrangeArrayUsingBruteForce();
 
     return 0;
 }
