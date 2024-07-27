@@ -764,7 +764,7 @@ void rotateArrayUsingReversalMethod()
 // Rearrange the array elements
 int rearrangeArrayUsingBruteForce()
 {
-    vector<int> nums = {3, 1, -2, -5, 2, 4};
+    vector<int> nums = {3, 1, -2, -5, 2, -4};
     int n = nums.size();
     vector<int> pos, neg, ans;
     for (int i = 0; i < n; i++)
@@ -785,6 +785,36 @@ int rearrangeArrayUsingBruteForce()
 
         cout << ans[i] << " ";
     }
+    cout << endl;
+    return 0;
+}
+
+void rearrangeArrayUsingEvenOddMethod()
+{
+    vector<int> nums = {3, 1, -2, -5, 2, -4};
+    int n = nums.size();
+    vector<int> ans(nums.size(), -1);
+    // Two Pointer approach
+    int even = 0;
+    int odd = 1;
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] > 0)
+        {
+            ans[even] = nums[i];
+            even += 2;
+        }
+        else
+        {
+            ans[odd] = nums[i];
+            odd += 2;
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << ans[i] << " ";
+    }
+    cout << endl;
 }
 
 int main()
@@ -904,6 +934,7 @@ int main()
 
     // Rearrange the array elements
     rearrangeArrayUsingBruteForce();
+    rearrangeArrayUsingEvenOddMethod();
 
     return 0;
 }
