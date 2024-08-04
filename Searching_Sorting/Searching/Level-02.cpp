@@ -1,24 +1,25 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
-// Piarrot Element
-// Find Maximum Number in an Sorted and Rotated Array
-int findPiarrotElememt(vector<int> &arr, int n)
+// Function to find the maximum element in a sorted and rotated array
+int findPivotElement(vector<int> &arr, int n)
 {
-
     int start = 0;
     int end = n - 1;
+
     while (start <= end)
     {
         int mid = start + (end - start) / 2;
-        if (start == end)
-            return arr[start];
-        else if (mid - 1 >= 0 && arr[mid] < arr[mid - 1])
-            return arr[mid - 1];
-        else if (mid + 1 < n - 1 && arr[mid] > arr[mid + 1])
-            return arr[mid];
-        else if (arr[start] > arr[mid])
+
+        if (mid < end && arr[mid] > arr[mid + 1])
+            return mid;
+
+        if (mid > start && arr[mid] < arr[mid - 1])
+            return mid - 1;
+
+        if (arr[start] >= arr[mid])
             end = mid - 1;
         else
             start = mid + 1;
@@ -26,15 +27,13 @@ int findPiarrotElememt(vector<int> &arr, int n)
     return -1;
 }
 
-int binarySearch(vector<int> &arr, int n, int target)
+int binarySearch(vector<int> &arr, int start, int end, int target)
 {
-    int start = 0;
-    int end = n - 1;
     while (start <= end)
     {
         int mid = start + (end - start) / 2;
         if (arr[mid] == target)
-            return target;
+            return mid;
         else if (target > arr[mid])
             start = mid + 1;
         else
@@ -43,11 +42,38 @@ int binarySearch(vector<int> &arr, int n, int target)
     return -1;
 }
 
+void search()
+{
+    vector<int> arr = {1, 2, 3};
+    int n = arr.size();
+    int target = 3;
+    int ans = -1;
+
+    int pivotIndex = findPivotElement(arr, n);
+
+    if (pivotIndex == -1) // array is not rotated
+    {
+        ans = binarySearch(arr, 0, n - 1, target);
+    }
+    else if (target >= arr[0] && target <= arr[pivotIndex])
+    {
+        ans = binarySearch(arr, 0, pivotIndex, target);
+    }
+    else
+    {
+        ans = binarySearch(arr, pivotIndex + 1, n - 1, target);
+    }
+
+    cout << (ans != -1 ? "Element found at index: " + to_string(ans) : "Element not found") << endl;
+}
+
+int findSquareRoot()
+{
+
+}
+
 int main()
 {
-    vector<int> arr = {12, 14, 16, 2, 4, 6, 8};
-    int n = arr.size();
-
-
+    search();
     return 0;
 }
