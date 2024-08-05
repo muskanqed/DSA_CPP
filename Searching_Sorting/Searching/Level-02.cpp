@@ -67,9 +67,35 @@ void search()
     cout << (ans != -1 ? "Element found at index: " + to_string(ans) : "Element not found") << endl;
 }
 
-int findSquareRoot()
+int findSquareRoot(int x)
 {
+    int s = 0;
+    int e = x;
+    long long int mid = s + (e - s) / 2;
+    int ans = -1;
 
+    while (s <= e)
+    {
+        // kya mid hi toh answer nahi
+        if (mid * mid == x)
+        {
+            return mid;
+        }
+        else if (mid * mid < x)
+        {
+            // ans store
+            // right me jao
+            ans = mid;
+            s = mid + 1;
+        }
+        else
+        {
+            // left me jana h
+            e = mid - 1;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return ans;
 }
 
 int main()
