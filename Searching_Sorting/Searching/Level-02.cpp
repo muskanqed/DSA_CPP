@@ -67,13 +67,40 @@ void search()
     cout << (ans != -1 ? "Element found at index: " + to_string(ans) : "Element not found") << endl;
 }
 
+// Very important
+// Search Space Method: Possible answers in a range
 int findSquareRoot(int x)
 {
-
+    int start = 0;
+    int end = x;
+    int ans = -1;
+    while (start <= end)
+    {
+        long long int mid = start + (end - start) / 2;
+        if (mid * mid == x)
+        {
+            return x;
+        }
+        else if (mid * mid < x)
+        {
+            ans = mid;
+            start = mid + 1;
+        }
+        else
+        {
+            end = mid - 1;
+        }
+    }
+    return ans;
 }
 
 int main()
 {
-    search();
+    // search();
+
+    int x = 8;
+    int sqrt = findSquareRoot(x);
+    cout << "Square is: " << sqrt << endl;
+
     return 0;
 }
