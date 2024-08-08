@@ -94,13 +94,46 @@ int findSquareRoot(int x)
     return ans;
 }
 
+// 2D Array
+// To apply BS in 2D array
+// 2D -> 1D => (c*i)+j
+// 1D -> 2D => i = index / 2, j=index % 2
+bool binarySearchIn2DArray()
+{
+    vector<vector<int>> matrix = {{2, 3, 4, 5},
+                                  {6, 7, 8, 9},
+                                  {50, 60, 80, 90}};
+    int row = matrix.size();
+    int col = matrix[0].size();
+    int n = row * col;
+    int s = 0;
+    int e = n - 1;
+    int target = 80;
+    while (s <= e)
+    {
+        int mid = s + (e - s) / 2;
+        int rowIndex = mid / col;
+        int colIndex = mid % col;
+        int currNumber = matrix[rowIndex][colIndex];
+        if (target == currNumber)
+            return true;
+        else if (target > currNumber)
+            s = mid + 1;
+        else
+            e = mid - 1;
+    }
+    return false;
+}
+
 int main()
 {
     // search();
 
-    int x = 8;
-    int sqrt = findSquareRoot(x);
-    cout << "Square is: " << sqrt << endl;
+    // int x = 8;
+    // int sqrt = findSquareRoot(x);
+    // cout << "Square is: " << sqrt << endl;
+
+    cout << binarySearchIn2DArray();
 
     return 0;
 }
