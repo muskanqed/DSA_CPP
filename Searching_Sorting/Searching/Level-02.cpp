@@ -98,6 +98,7 @@ int findSquareRoot(int x)
 // To apply BS in 2D array
 // 2D -> 1D => (c*i)+j
 // 1D -> 2D => i = index / 2, j=index % 2
+// Complexity log(m*n)
 bool binarySearchIn2DArray()
 {
     vector<vector<int>> matrix = {{2, 3, 4, 5},
