@@ -110,31 +110,6 @@ int findOddOccuringElement(int arr[], int n) {
 
 int main() {
 
-  // int divisor = 7;
-  // int dividend = 29;
-  
-  // int ans = getQuotient(abs(divisor), abs(dividend));
-
-  // //now we need to decide k sign konsa lagaye +ve ya negative
-
-  // if((divisor >0 && dividend <0) || (divisor <0 && dividend > 0)) {
-  //  ans = 0 - ans;
-  // }
-
-  // cout << "Final Ans is: " << ans << endl;
-
-  // int arr[] = {20,10,30,50,40,70,60};
-  // int n = 7;
-  // int target = 20;
-
-  // int targetIndex = searchNearlySorted(arr, n, target);
-
-  // if(targetIndex == -1) {
-  //  cout << "Element Not found" << endl;
-  // }
-  // else {
-  //  cout << "Element Found at Index: " << targetIndex << endl;
-  // }
 
 
   int arr[] = {10,10,10};
