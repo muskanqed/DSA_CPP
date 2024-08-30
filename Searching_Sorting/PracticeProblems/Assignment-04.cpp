@@ -82,11 +82,47 @@ int findPairsUsingBinarySearch()
     return ans.size();
 }
 
+//  K closet elements
+void kClosetElementTwoPointerApproach()
+{
+    vector<int> nums = {1, 2, 3, 4, 5};
+    vector<int> ans;
+    int n = nums.size();
+    int k = 4;
+    int x = 3;
+    int l = 0;
+    int h = n - 1;
+    while (h - l >= k)
+    {
+        if (x - nums[l] > nums[h] - x)
+        {
+            l++;
+        }
+        else
+        {
+            h--;
+        }
+    }
+    for (int i = l; i <= h; i++)
+    {
+        ans.push_back(nums[i]);
+    }
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " ";
+    }
+}
+
 int main()
 {
+    // K-diff pairs in an array: The difference of pairs selected should
+    // be equal to k as well as all the pairs should be distinct
     // Time Complexity will be O(nlogn)
-    cout << findPairs() << endl;
-    // Time Complexity will be O(nlogn)
-    cout << findPairsUsingBinarySearch();
+    // cout << findPairs() << endl;
+    // cout << findPairsUsingBinarySearch();
+
+    // K closet elements: There is an x number given
+    // when x-nums[i] the difference should be close to x and we need to return k number of elements
+    kClosetElementTwoPointerApproach();
     return 0;
 }
