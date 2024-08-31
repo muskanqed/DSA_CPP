@@ -83,13 +83,13 @@ int findPairsUsingBinarySearch()
 }
 
 //  K closet elements
-void kClosetElementTwoPointerApproach()
+vector<int> kClosetElementTwoPointerApproach()
 {
-    vector<int> nums = {1, 2, 3, 4, 5};
+    vector<int> nums = {12, 16, 22, 30, 35, 39, 42, 45};
     vector<int> ans;
     int n = nums.size();
     int k = 4;
-    int x = 3;
+    int x = 9;
     int l = 0;
     int h = n - 1;
     while (h - l >= k)
@@ -103,14 +103,69 @@ void kClosetElementTwoPointerApproach()
             h--;
         }
     }
-    for (int i = l; i <= h; i++)
+    // for (int i = l; i <= h; i++)
+    // {
+    //     ans.push_back(nums[i]);
+    // }
+    // for (int i = 0; i < ans.size(); i++)
+    // {
+    //     cout << ans[i] << " ";
+    // }
+    return vector<int>(nums.begin() + l, nums.begin() + h + 1);
+}
+
+int lowerBound(vector<int> &nums, int x)
+{
+    int start = 0;
+    int end = nums.size() - 1;
+    int ans = end;
+    while (start <= end)
     {
-        ans.push_back(nums[i]);
+        int mid = start + (end - start) / 2;
+        if (nums[mid] >= x)
+        {
+            ans = mid;
+            end = mid - 1;
+        }
+        else if (x < nums[mid])
+        {
+            end = mid - 1;
+        }
+        else
+        {
+            start = mid + 1;
+        }
     }
-    for (int i = 0; i < ans.size(); i++)
+    return ans;
+}
+
+vector<int> kClosetElementUsingBinarySearch()
+{
+    vector<int> nums = {2, 3, 4, 5, 6};
+    int x = 2;
+    int k = 4;
+    int h = lowerBound(nums, x);
+    int l = h - 1;
+    while (k--)
     {
-        cout << ans[i] << " ";
+        if (l < 0)
+        {
+            h++;
+        }
+        else if (h >= nums.size())
+        {
+            l--;
+        }
+        else if (x - nums[l] > nums[h] - x)
+        {
+            h++;
+        }
+        else
+        {
+            l--;
+        }
     }
+    return vector<int>(nums.begin() + l + 1, nums.begin() + h);
 }
 
 int main()
@@ -123,6 +178,18 @@ int main()
 
     // K closet elements: There is an x number given
     // when x-nums[i] the difference should be close to x and we need to return k number of elements
-    kClosetElementTwoPointerApproach();
+    // Time Complexity will be O(n-k)
+    // vector<int> ans = kClosetElementTwoPointerApproach();
+    // for (int num : ans)
+    // {
+    //     cout << num << " ";
+    // }
+    // Time Complexity will be Olog(n+k)
+    vector<int> ans = kClosetElementUsingBinarySearch();
+    for (int num : ans)
+    {
+        cout << num << " ";
+    }
+
     return 0;
 }
